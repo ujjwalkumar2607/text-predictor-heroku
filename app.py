@@ -7,6 +7,10 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.models import load_model
 import streamlit as st
+from PIL import Image
+
+#importing cover image
+image = Image.open('NLP.png')
 
 #loading the pre-trained weights and model architecture
 model = tf.keras.models.load_model('textPredictorModel.h5')
@@ -14,6 +18,7 @@ model = tf.keras.models.load_model('textPredictorModel.h5')
 #defining project title
 st.title("Text Predictor!")
 st.subheader("A Deep Learning Model that foretells text before you type it.")
+st.image(image, caption='',use_column_width=True)
 
 #dataset preprocessing
 file = open("Goodwill.txt").read() #opeining the dataset and reading from it
